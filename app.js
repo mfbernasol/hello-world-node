@@ -3,10 +3,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World! This is a node app')
+app.set('view engine','ejs')
+app.set('views', path.join(__dirname,'views'));
+
+app.use(express.urlencoded({
+  extended: true
+}));
+
+app.get('/',(req,res) => {
+  res.render('home.ejs');
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
-});
+app.listen(process.env.PORT || 5000,console.log('5000'));
