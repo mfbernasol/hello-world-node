@@ -1,17 +1,27 @@
-
 const express = require('express');
 const app = express();
-const port = 3000;
 
-app.set('view engine','ejs')
-app.set('views', path.join(__dirname,'views'));
+const path = require('path')
 
+app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+
+//body parser middleware
 app.use(express.urlencoded({
-  extended: true
+    extended: true
 }));
 
-app.get('/',(req,res) => {
-  res.render('home.ejs');
-});
+app.get('/',(req,res)=>{
+    res.render('home.ejs')
+})
 
-app.listen(process.env.PORT || 5000,console.log('5000'));
+// app.post('/',(req,res)=>{
+//     console.log(req.body.name,req.body.stuff);
+
+//     res.render('welcome.ejs',{
+//         name: req.body.name,
+//         stuff:req.body.age
+//     })
+// })
+
+app.listen(process.env.PORT||5000,console.log('5000'))
