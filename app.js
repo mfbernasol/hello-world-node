@@ -15,13 +15,13 @@ app.get('/',(req,res)=>{
     res.render('home.ejs')
 })
 
-// app.post('/',(req,res)=>{
-//     console.log(req.body.name,req.body.stuff);
+app.post('/',(req,res)=>{
+    console.log(req.body.name,req.body.stuff);
 
-//     res.render('welcome.ejs',{
-//         name: req.body.name,
-//         stuff:req.body.age
-//     })
-// })
+    res.render('welcome.ejs',{
+        name: req.body.name,
+        stuff:req.body.age
+    })
+})
 
 app.listen(process.env.PORT||5000,console.log('5000'))
